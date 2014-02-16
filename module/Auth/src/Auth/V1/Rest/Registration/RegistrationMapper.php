@@ -6,12 +6,12 @@ use ZfcBase\Mapper\AbstractDbMapper;
 
 class RegistrationMapper extends AbstractDbMapper
 {
-	protected $tableName = 'oauth_users';
+    protected $tableName = 'oauth_users';
 
-	public function insert($registrationEntity)
-	{
-		return parent::insert($registrationEntity)->getAffectedRows();
-	}
+    public function insert($registrationEntity)
+    {
+        return parent::insert($registrationEntity)->getAffectedRows();
+    }
 
     /**
      * Gets the value of tableName.

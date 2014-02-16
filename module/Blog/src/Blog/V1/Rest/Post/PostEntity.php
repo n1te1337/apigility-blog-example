@@ -3,11 +3,11 @@ namespace Blog\V1\Rest\Post;
 
 class PostEntity
 {
-	protected $postId;
-	protected $postTitle;
-	protected $postBody;
-	protected $postDate;
-	protected $userId;
+    protected $postId;
+    protected $postTitle;
+    protected $postBody;
+    protected $postDate;
+    protected $userId;
 
     /**
      * Gets the value of postId.

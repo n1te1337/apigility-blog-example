@@ -7,19 +7,19 @@ use Zend\Paginator\Adapter\DbSelect;
 
 class PostMapper extends AbstractDbMapper
 {
-	protected $tableName = 'Post';
+    protected $tableName = 'Post';
 
-	public function findAll($userId)
-	{
-		$select = $this->getSelect();
-		$select->where(array('userId' => $userId));
+    public function findAll($userId)
+    {
+        $select = $this->getSelect();
+        $select->where(array('userId' => $userId));
 
-		$adapter = $this->getDbAdapter();
-		$paginatorAdapter = new DbSelect($select, $adapter);
-		$collection = new PostCollection($paginatorAdapter);
+        $adapter = $this->getDbAdapter();
+        $paginatorAdapter = new DbSelect($select, $adapter);
+        $collection = new PostCollection($paginatorAdapter);
 
-		return $collection;
-	}
+        return $collection;
+    }
 
     public function findById($userId, $postId)
     {
@@ -34,11 +34,11 @@ class PostMapper extends AbstractDbMapper
         return $postEntity;
     }
 
-	public function insert($postEntity)
-	{
-		$result = parent::insert($postEntity);
-		$postEntity->setPostId($result->getGeneratedValue());
-	}
+    public function insert($postEntity)
+    {
+        $result = parent::insert($postEntity);
+        $postEntity->setPostId($result->getGeneratedValue());
+    }
 
     public function update($postEntity)
     {

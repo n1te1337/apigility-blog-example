@@ -8,11 +8,11 @@ use Zend\Crypt\Password\Bcrypt;
 
 class RegistrationService implements ServiceManagerAwareInterface
 {
-	protected $serviceManager;
-	protected $mapper;
+    protected $serviceManager;
+    protected $mapper;
 
-	public function processRegistration($data) 
-	{
+    public function processRegistration($data) 
+    {
         $bcrypt = new Bcrypt();
         $data->password = $bcrypt->create($data->password);
 
@@ -20,7 +20,7 @@ class RegistrationService implements ServiceManagerAwareInterface
         $this->getMapper()->getHydrator()->hydrate((array)$data, $registerEntity);
 
         return $this->getMapper()->insert($registerEntity);
-	}
+    }
 
     /**
      * Gets the value of serviceManager.

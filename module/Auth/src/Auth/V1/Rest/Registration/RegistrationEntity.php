@@ -3,11 +3,11 @@ namespace Auth\V1\Rest\Registration;
 
 class RegistrationEntity
 {
-	protected $username;
-	protected $password;
-	protected $firstName;
-	protected $lastName;
-	
+    protected $username;
+    protected $password;
+    protected $firstName;
+    protected $lastName;
+    
 
     /**
      * Gets the value of username.

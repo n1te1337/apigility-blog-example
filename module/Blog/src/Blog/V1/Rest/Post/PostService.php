@@ -7,34 +7,34 @@ use Zend\ServiceManager\ServiceManagerAwareInterface;
 
 class PostService implements ServiceManagerAwareInterface
 {
-	protected $serviceManager;
-	protected $mapper;
+    protected $serviceManager;
+    protected $mapper;
 
-	public function getPosts()
-	{
-		return $this->getMapper()->findAll($this->getUserId());
-	}
+    public function getPosts()
+    {
+        return $this->getMapper()->findAll($this->getUserId());
+    }
 
     public function getPost($id)
     {
         return $this->getMapper()->findById($this->getUserId(), $id);
     }
 
-	public function savePost($data) 
-	{
-		$postEntity = new PostEntity();
-		$this->getMapper()->getHydrator()->hydrate((array)$data, $postEntity);
-		$postEntity->setUserId($this->getUserId());
+    public function savePost($data) 
+    {
+        $postEntity = new PostEntity();
+        $this->getMapper()->getHydrator()->hydrate((array)$data, $postEntity);
+        $postEntity->setUserId($this->getUserId());
         
-		if (!is_null($postEntity->getPostId())) {
-			$this->getMapper()->update($postEntity);
-		} else {
-			$postEntity->setPostDate(date("Y-m-d H:i:s"));
-			$this->getMapper()->insert($postEntity);
-		}
+        if (!is_null($postEntity->getPostId())) {
+            $this->getMapper()->update($postEntity);
+        } else {
+            $postEntity->setPostDate(date("Y-m-d H:i:s"));
+            $this->getMapper()->insert($postEntity);
+        }
 
-		return $postEntity;
-	}
+        return $postEntity;
+    }
 
     public function deletePost($id)
     {
@@ -91,6 +91,6 @@ class PostService implements ServiceManagerAwareInterface
 
     public function getUserId()
     {
-    	return $this->getServiceManager()->get('AuthService')->getToken()->user_id;
+        return $this->getServiceManager()->get('AuthService')->getToken()->user_id;
     }
 }
