@@ -41,8 +41,7 @@
         "zfcampus/zf-rest": "~1.0-dev",
         "zfcampus/zf-rpc": "~1.0-dev",
         "zfcampus/zf-versioning": "~1.0-dev",
-        "zf-commons/zfc-base": "dev-master",
-        "mikehaertl/phpwkhtmltopdf": "1.1.*@dev"
+        "zf-commons/zfc-base": "dev-master"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",
