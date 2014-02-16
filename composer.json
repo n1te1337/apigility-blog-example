@@ -1,0 +1,54 @@
+{
+    "name": "zfcampus/zf-apigility-skeleton",
+    "description": "Skeleton Application for Apigility",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "api",
+        "apigility",
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://apigility.org/",
+    "support": {
+        "email": "apigility-users@zend.com",
+        "irc": "irc://irc.freenode.net/apigility",
+        "source": "https://github.com/zfcampus/zf-apigility-skeleton",
+        "issues": "https://github.com/zfcampus/zf-apigility-skeleton/issues"
+    },
+    "config": {
+    	"process-timeout": 5000
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.4.8",
+        "bshaffer/oauth2-server-php": "dev-develop",
+        "rwoverdijk/assetmanager": "~1.3",
+        "zendframework/zendframework": "~2.3-dev",
+        "zfcampus/zf-apigility": "~1.0-dev",
+        "zfcampus/zf-apigility-provider": "~1.0-dev",
+        "zfcampus/zf-api-problem": "~1.0-dev",
+        "zfcampus/zf-content-negotiation": "~1.0-dev",
+        "zfcampus/zf-content-validation": "~1.0-dev",
+        "zfcampus/zf-development-mode": "~2.0",
+        "zfcampus/zf-hal": "~1.0-dev",
+        "zfcampus/zf-mvc-auth": "~1.0-dev",
+        "zfcampus/zf-oauth2": "~1.0-dev",
+        "zfcampus/zf-rest": "~1.0-dev",
+        "zfcampus/zf-rpc": "~1.0-dev",
+        "zfcampus/zf-versioning": "~1.0-dev",
+        "zf-commons/zfc-base": "dev-master",
+        "mikehaertl/phpwkhtmltopdf": "1.1.*@dev"
+    },
+    "require-dev": {
+        "zendframework/zftool": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "zfcampus/zf-apigility-admin": "~1.0-dev",
+        "zfcampus/zf-configuration": "~1.0-dev",
+        "zfcampus/zf-apigility-welcome": "~1.0-dev"
+    }
+}
