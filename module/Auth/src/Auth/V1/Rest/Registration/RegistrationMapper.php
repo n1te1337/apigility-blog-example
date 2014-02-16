@@ -8,9 +8,9 @@ class RegistrationMapper extends AbstractDbMapper
 {
 	protected $tableName = 'oauth_users';
 
-	public function insert($postEntity)
+	public function insert($registrationEntity)
 	{
-		return parent::insert($postEntity)->getAffectedRows();
+		return parent::insert($registrationEntity)->getAffectedRows();
 	}
 
     /**
