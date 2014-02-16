@@ -23,7 +23,6 @@ class RegistrationResource extends AbstractResourceListener
      */
     public function create($data)
     {
-        $asd = new AuthControllerFactory;
         if ($this->getRegistrationService()->processRegistration($data)) {
             return new ApiProblem(200, 'The entity has been created', null, 'Success');
         }
