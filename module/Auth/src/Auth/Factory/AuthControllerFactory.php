@@ -39,9 +39,6 @@ class AuthControllerFactory implements FactoryInterface
         // Add the "User Credentials" grant type
         $server->addGrantType(new UserCredentials($storage));
 
-        // Add the "Refresh Token" grant type
-        $server->addGrantType(new RefreshToken($storage));
-
         return new AuthController($server);
     }
 }
