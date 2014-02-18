@@ -91,6 +91,6 @@ class PostService implements ServiceManagerAwareInterface
 
     public function getUserId()
     {
-        return $this->getServiceManager()->get('AuthService')->getToken()->user_id;
+        return $this->getServiceManager()->get('api-identity')->getRoleId();
     }
 }
