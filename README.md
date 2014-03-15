@@ -48,6 +48,7 @@ DELETE
 ```
 Sample request to create a post
 ```bash
+Authorization: Bearer f585ddc332207db088e13cee0f6e35ce93552f67
 POST
 /post
 
