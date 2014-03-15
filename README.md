@@ -1,96 +1,96 @@
-Apigility Skeleton Application
+Blog example
 ==============================
 
-Installation
+Simple example of a restful blog API built using Apigility.
+
+The API users User Credentials grant of the OAuth2 spec. 
+
+Sample database is located in `data/sample_schema.sql`
+
+##### To find out how to set up Apigility go the the main repo: https://github.com/zfcampus/zf-apigility-skeleton
+
+##### To find out how to use Apigility and see what it has to offer I suggest watching the Getting started with Apigility video by Matthew Weier O'Phinney: http://apigility.org/get-started-video.html
 ------------
 
-### Via release tarball
+### Post CRUD
+Allowed fields for posts are:
 
-Grab the latest release via the [Apigility website](http://apigility.org/)
-and/or the [releases page](https://github.com/zfcampus/zf-apigility-skeleton/releases).
-At the time of this writing, that URI is:
+`postId` - ID of a post
 
-- https://github.com/zfcampus/zf-apigility-skeleton/releases/download/0.8.0/zf-apigility-skeleton-0.8.0.tgz
+`postTitle` - title of a post
 
-Untar it:
+`postBody` - body of a post
 
-```bash
-tar xzf zf-apigility-skeleton-0.8.0.tgz
-```
+`postDate` - the date a post was created
 
-### Via Composer (create-project)
-
-You can use the `create-project` command from [Composer](http://getcomposer.org/)
-to create the project in one go:
+`userId` - ID of the user who created the post
 
 ```bash
-curl -s https://getcomposer.org/installer | php --
-php composer.phar create-project -sdev zfcampus/zf-apigility-skeleton path/to/install
+# Create a post
+POST
+/post
+
+# Get all posts
+GET
+/post
+
+# Get a specific post
+GET
+/post/:postId
+
+# Update a post
+PUT
+/post/:postId
+
+# Delete a post
+DELETE
+/post/:postId
+```
+Sample request to create a post
+```bash
+POST
+/post
+
+{
+  "postTitle": "Sample post",
+  "postBody": "This is just a sample post to see if the API works"
+}
 ```
 
-### Via Git (clone)
 
-First, clone the repository:
+### Registration and Authentication
+Allowed fieds for registration are:
+
+`username` - username/email of the user
+
+`password` - password for the user
+
+`firstname` - first name of the user
+
+`lastname` - last name of the user
 
 ```bash
-git clone https://github.com/zfcampus/zf-apigility-skeleton.git # optionally, specify the directory in which to clone
-cd path/to/install
-```
+# Register a user
+POST
+/auth/registration
 
-At this point, you need to use [Composer](https://getcomposer.org/) to install
-dependencies. Assuming you already have Composer:
+{
+  "username": "someone@example.com",
+  "password": "testpass",
+  "firstname": "Pav",
+  "lastname": "1337"
+}
+```
 
 ```bash
-composer.phar install
+# Login a user
+POST
+/auth/login
+
+{
+  "username": "someone@example.com",
+  "password": "testpass",
+  "grant_type": "password",
+  "client_id": "webapp"
+}
 ```
-
-### All methods
-
-Once you have the basic installation, you need to put it in development mode:
-
-```bash
-cd path/to/install
-php public/index.php development enable # put the skeleton in development mode
-```
-
-Now, fire it up! Do one of the following:
-
-- Create a vhost in your web server that points the DocumentRoot to the
-  `public/` directory of the project
-- Fire up the built-in web server in PHP (5.4.8+) (**note**: do not use this for
-  production!)
-
-In the latter case, do the following:
-
-```bash
-cd path/to/install
-php -S 0.0.0.0:8080 -t public public/index.php
-```
-
-You can then visit the site at http://localhost:8080/ - which will bring up a
-welcome page and the ability to visit the dashboard in order to create and
-inspect your APIs.
-
-### NOTE ABOUT USING THE PHP BUILT-IN WEB SERVER
-
-PHP's built-in web server did not start supporting the `PATCH` HTTP method until
-5.4.8. Since the admin API makes use of this HTTP method, you must use a version
-&gt;= 5.4.8 when using the built-in web server.
-
-### NOTE ABOUT OPCACHE
-
-**Disable all opcode caches when running the admin!**
-
-The admin cannot and will not run correctly when an opcode cache, such as APC or
-OpCache, is enabled. Apigility does not use a database to store configuration;
-instead, it uses PHP configuration files. Opcode caches will cache these files
-on first load, leading to inconsistencies as you write to them, and will
-typically lead to a state where the admin API and code become unusable.
-
-The admin is a **development** tool, and intended for use a development
-environment. As such, you should likely disable opcode caching, regardless.
-
-When you are ready to deploy your API to **production**, however, you can
-disable development mode, thus disabling the admin interface, and safely run an
-opcode cache again. Doing so is recommended for production due to the tremendous
-performance benefits opcode caches provide.
