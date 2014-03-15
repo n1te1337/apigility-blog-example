@@ -19,9 +19,9 @@
 return array(
 	'db' => array(
 		'driver' 			=> 'Pdo',
-		'dsn' 				=> 'mysql:dbname=blog_apigility;host=localhost',
-		'username'			=> 'root',
-    	'password'			=> 'asasas',
+		'dsn' 				=> 'mysql:dbname=vagrant;host=localhost',
+		'username'			=> 'vagrant',
+    	'password'			=> 'vagrant',
     	'driver_options'	=> array(
         	PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
    		),

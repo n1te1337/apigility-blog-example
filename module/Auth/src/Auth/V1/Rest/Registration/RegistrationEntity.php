@@ -5,8 +5,8 @@ class RegistrationEntity
 {
     protected $username;
     protected $password;
-    protected $firstName;
-    protected $lastName;
+    protected $firstname;
+    protected $lastname;
     
 
     /**
@@ -62,9 +62,9 @@ class RegistrationEntity
      *
      * @return mixed
      */
-    public function getFirstName()
+    public function getFirstname()
     {
-        return $this->firstName;
+        return $this->firstname;
     }
     
     /**
@@ -74,9 +74,9 @@ class RegistrationEntity
      *
      * @return self
      */
-    public function setFirstName($firstName)
+    public function setFirstname($firstname)
     {
-        $this->firstName = $firstName;
+        $this->firstname = $firstname;
 
         return $this;
     }
@@ -86,9 +86,9 @@ class RegistrationEntity
      *
      * @return mixed
      */
-    public function getLastName()
+    public function getLastname()
     {
-        return $this->lastName;
+        return $this->lastname;
     }
     
     /**
