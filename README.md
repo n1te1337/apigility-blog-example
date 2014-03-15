@@ -1,29 +1,65 @@
 Blog example
 ==============================
 
-Simple example of a restful blog API built using Apigility.
+Simple example of a restful blog API built with Apigility.
 
-The API users User Credentials grant of the OAuth2 spec. 
+The API uses User Credentials grant type of the OAuth2 spec for authentication. 
 
-Sample database is located in `data/sample_schema.sql`
+Sample database schema is located in `data/sample_schema.sql`
 
-##### To find out how to set up Apigility go the the main repo: https://github.com/zfcampus/zf-apigility-skeleton
+##### To find out how to set up Apigility see the README of the [main Apigility repo.](https://github.com/zfcampus/zf-apigility-skeleton)
 
-##### To find out how to use Apigility and see what it has to offer watch the Getting started with Apigility video by Matthew Weier O'Phinney: http://apigility.org/get-started-video.html
+##### To find out how to use Apigility and what it has to offer watch [Getting started with Apigility by Matthew Weier O'Phinney.](http://apigility.org/get-started-video.html)
 ------------
+
+### Registration and Login
+Allowed fieds for registration are:
+
+`username` - email address of the user (required, valid email)
+
+`password` - password for the user (required, min length 6)
+
+`firstname` - first name of the user (required, chars only)
+
+`lastname` - last name of the user (required, chars only)
+
+```bash
+# Register a user
+POST
+/auth/registration
+
+{
+  "username": "n1teleet@gmail.com",
+  "password": "testpass",
+  "firstname": "Pav",
+  "lastname": "Zwierzynski"
+}
+```
+
+```bash
+# Login a user
+POST
+/auth/login
+
+{
+  "username": "n1teleet@gmail.com",
+  "password": "testpass",
+  "grant_type": "password",
+  "client_id": "webapp"
+}
+```
+
 
 ### Post CRUD
 Allowed fields for posts are:
 
 `postId` - ID of a post
 
-`postTitle` - title of a post
+`postTitle` - title of a post (required)
 
 `postBody` - body of a post
 
-`postDate` - the date a post was created
-
-`userId` - ID of the user who created the post
+`postDate` - the date when a post was created
 
 ```bash
 # Create a post
@@ -55,43 +91,5 @@ POST
 {
   "postTitle": "Sample post",
   "postBody": "This is just a sample post to see if the API works"
-}
-```
-
-
-### Registration and Authentication
-Allowed fieds for registration are:
-
-`username` - username/email of the user
-
-`password` - password for the user
-
-`firstname` - first name of the user
-
-`lastname` - last name of the user
-
-```bash
-# Register a user
-POST
-/auth/registration
-
-{
-  "username": "someone@example.com",
-  "password": "testpass",
-  "firstname": "Pav",
-  "lastname": "Zwierzynski"
-}
-```
-
-```bash
-# Login a user
-POST
-/auth/login
-
-{
-  "username": "someone@example.com",
-  "password": "testpass",
-  "grant_type": "password",
-  "client_id": "webapp"
 }
 ```
