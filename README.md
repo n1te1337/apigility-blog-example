@@ -78,7 +78,7 @@ POST
   "username": "someone@example.com",
   "password": "testpass",
   "firstname": "Pav",
-  "lastname": "1337"
+  "lastname": "Zwierzynski"
 }
 ```
 
