@@ -41,6 +41,12 @@ class PostService implements ServiceManagerAwareInterface
         return $this->getMapper()->delete($this->getUserId(), $id);
     }
 
+
+    public function getUserId()
+    {
+        return $this->getServiceManager()->get('api-identity')->getRoleId();
+    }
+
     /**
      * Gets the value of serviceManager.
      *
@@ -87,10 +93,5 @@ class PostService implements ServiceManagerAwareInterface
         $this->mapper = $mapper;
 
         return $this;
-    }
-
-    public function getUserId()
-    {
-        return $this->getServiceManager()->get('api-identity')->getRoleId();
     }
 }
