@@ -77,10 +77,10 @@ return array(
     ),
     'zf-content-validation' => array(
         'Blog\\V1\\Rest\\Post\\Controller' => array(
-            'input_filter' => 'Blog\\V1\\Rest\\Post\\Validator',
+            'input_filter_specs' => 'Blog\\V1\\Rest\\Post\\Validator',
         ),
     ),
-    'input_filters' => array(
+    'input_filter_specs' => array(
         'Blog\\V1\\Rest\\Post\\Validator' => array(
             0 => array(
                 'name' => 'postId',

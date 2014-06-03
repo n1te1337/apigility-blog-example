@@ -1,10 +1,5 @@
 <?php
 return array(
-    'controllers' => array(
-        'factories' => array(
-            'ZF\\OAuth2\\Controller\\Auth' => 'Auth\\Factory\\AuthControllerFactory',
-        ),
-    ),
     'router' => array(
         'routes' => array(
             'auth.rest.registration' => array(
@@ -77,10 +72,10 @@ return array(
     ),
     'zf-content-validation' => array(
         'Auth\\V1\\Rest\\Registration\\Controller' => array(
-            'input_filter' => 'Auth\\V1\\Rest\\Registration\\Validator',
+            'input_filter_specs' => 'Auth\\V1\\Rest\\Registration\\Validator',
         ),
     ),
-    'input_filters' => array(
+    'input_filter_specs' => array(
         'Auth\\V1\\Rest\\Registration\\Validator' => array(
             0 => array(
                 'name' => 'username',
