@@ -25,6 +25,7 @@ class Module implements ApigilityProviderInterface
     {
         return array(
             'factories' => array(
+                'Auth\V1\RegistrationService' => 'Auth\V1\Rest\Registration\RegistrationServiceFactory',
                 'Auth\V1\Rest\Registration\RegistrationResource' => function($sm) {
                     return new \Auth\V1\Rest\Registration\RegistrationResource($sm);
                 },
