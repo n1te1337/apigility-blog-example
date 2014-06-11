@@ -98,9 +98,9 @@ class RegistrationEntity
      *
      * @return self
      */
-    public function setLastName($lastName)
+    public function setLastName($lastname)
     {
-        $this->lastName = $lastName;
+        $this->lastname = $lastname;
 
         return $this;
     }
