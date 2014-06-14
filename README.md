@@ -9,7 +9,7 @@ Sample database schema is located in `data/sample_schema.sql`
 
 ##### To find out how to set up Apigility see the README of the [main Apigility repo.](https://github.com/zfcampus/zf-apigility-skeleton)
 
-##### To find out how to use Apigility and what it has to offer watch [Getting started with Apigility by Matthew Weier O'Phinney.](http://apigility.org/get-started-video.html)
+##### To find out how to use Apigility and what it has to offer watch [Getting started with Apigility by Matthew Weier O'Phinney.](https://apigility.org/video)
 ------------
 
 ### Registration and Login
